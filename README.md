@@ -83,6 +83,22 @@ Adjusted Wait Time =
 - Nearly even admission split: **~50% admitted**, rest treated and released
 - Largest patient age group: **30–39 years** (1,200 patients)
 
+## 🔎 Key Insights & Recommendations
+
+**What the data shows:**
+- The ER handled 9,216 patient visits over 19 months (Apr 2023–Oct 2024), averaging a 35.3-minute wait time.
+- ~34% of visits exceeded the 30-minute wait target, indicating a meaningful portion of patients experience delays.
+- Monday was the consistently busiest day for patient arrivals.
+- General Practice (1,840 cases) and Orthopedics (995 cases) were the top referral departments by far.
+- Admissions were nearly a coin flip (~50%), and the 30–39 age group made up the largest patient segment.
+
+**What this means for the hospital:**
+1. **Staffing could be shifted toward peak days/hours** instead of spread evenly, directly targeting the periods driving the longest waits.
+2. **The ~34% of delayed visits warrant a root-cause look** — segmenting delays by department or hour would help pinpoint where bottlenecks actually occur.
+3. **General Practice and Orthopedics referral pathways are high-volume enough to justify a dedicated fast-track process**, potentially reducing overall ER congestion.
+
+This turns the dashboard from a descriptive report into a decision-support tool — surfacing not just *what* happened in the ER, but *where hospital leadership could act* to improve patient flow.
+
 ---
 
 ##  Screenshots
