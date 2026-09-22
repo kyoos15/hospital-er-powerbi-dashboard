@@ -1,276 +1,588 @@
-# 🏥 Hospital Emergency Room Analytics Dashboard
+# 🏥 Hospital Emergency Room Dashboard — Power BI
 
-An interactive **Power BI dashboard** developed to analyze Emergency Room (ER) operations using patient-level data. The project transforms raw hospital data into actionable insights on patient volume, waiting time, satisfaction, admissions, referrals, demographics, and staffing requirements.
+An interactive **Power BI dashboard for analyzing hospital Emergency Room (ER) operations**, built to understand patient volume, waiting times, admissions, referrals, satisfaction, demographics, and peak operational periods.
 
----
-
-## 📌 Project Overview
-
-Emergency departments need to balance fluctuating patient demand with limited staff and resources. This project uses **Power BI and DAX** to analyze ER performance over a **19-month period (April 2023 – October 2024)**.
-
-The dashboard contains **9,216 unique patient records** and provides interactive views of operational KPIs, patient demographics, referral patterns, admission trends, and peak demand periods.
-
-A **What-If staffing simulator** was also developed using DAX parameters to evaluate how changes in staffing levels could affect patient waiting time and estimated delay costs.
+The dashboard uses a combination of **Power BI data modeling, DAX measures, interactive slicers, KPI cards, drill-down analysis, and a What-If parameter** to transform raw hospital ER data into actionable operational insights.
 
 ---
 
-## 🎯 Objectives
+## 📊 Project Overview
+
+Emergency departments need to balance patient volume, waiting times, staffing, referrals, and patient satisfaction.
+
+This project analyzes **9,216 unique ER patients** across a **19-month period from April 2023 to October 2024**.
+
+The dashboard provides both high-level management insights and detailed patient-level analysis.
+
+### Key questions addressed
+
+* How many patients visited the Emergency Room?
+* What is the average patient waiting time?
+* How does patient satisfaction vary?
+* How many patients were admitted versus released?
+* Which departments receive the most referrals?
+* When are the ER's busiest days and hours?
+* What are the major patient demographic patterns?
+* What proportion of patients are seen within 30 minutes?
+* How can staffing changes affect operational metrics?
+* Which areas may require operational attention?
+
+---
+
+# 🎯 Objectives
 
 The main objectives of this project were to:
 
-- Analyze Emergency Room patient volumes and operational trends.
-- Monitor average patient waiting time.
-- Analyze patient satisfaction.
-- Understand admission and discharge patterns.
-- Identify the most common departmental referrals.
-- Identify peak days and hours of ER activity.
-- Analyze patient demographics.
-- Build a What-If staffing simulator.
-- Provide data-driven recommendations for ER resource allocation.
+1. Analyze Emergency Room patient volume and operational performance.
+2. Monitor average patient waiting time.
+3. Track patient admission and referral patterns.
+4. Analyze patient satisfaction.
+5. Identify peak days and hours for ER visits.
+6. Understand demographic distributions.
+7. Provide patient-level drill-down capabilities.
+8. Build an interactive dashboard for hospital management.
+9. Use DAX to create meaningful KPIs and calculated metrics.
+10. Implement a **What-If parameter** to analyze the effect of staff increases on selected operational metrics.
 
 ---
 
-## 🛠️ Tools & Technologies
+# 🗂️ Dashboard Structure
 
-| Tool / Technology | Usage |
-|---|---|
-| **Power BI** | Dashboard development and visualization |
-| **DAX** | KPI calculations, measures and time intelligence |
-| **Power BI Data Modeling** | Data relationships and analytical model |
-| **Star Schema** | Structured analytical data model |
-| **What-If Parameters** | Staffing scenario simulation |
-| **Time Intelligence** | Month-over-month performance analysis |
+The Power BI report is divided into **four main pages**:
 
----
-
-# 📊 Dashboard Structure
-
-The dashboard consists of four major sections:
-
-### 1. Monthly View
-
-Provides a month-wise analysis of Emergency Room performance.
-
-Key metrics include:
-
-- Number of patients
-- Average waiting time
-- Patient satisfaction score
-- Number of patients referred
-- Monthly KPI trends
-- Previous-month comparisons
-- Staffing scenario analysis
-
-Interactive filters allow users to explore performance across different time periods and patient characteristics.
+| Page                 | Purpose                                      |
+| -------------------- | -------------------------------------------- |
+| 📅 Monthly View      | Analyze ER performance across months         |
+| 📊 Consolidated View | Overall operational overview                 |
+| 👤 Patient Details   | Explore individual patient-level information |
+| 💡 Key Takeaways     | Summarized findings and recommendations      |
 
 ---
 
-### 2. Consolidated View
+# 📅 1. Monthly View
 
-Provides a high-level overview of overall Emergency Room operations.
+The **Monthly View** focuses on understanding how ER performance changes over time.
 
-The page includes:
+### Main KPIs
 
-- Total patient count
-- Average waiting time
-- Patient satisfaction
-- Referral volume
-- Admission status
-- Patient demographics
-- Referral department distribution
-- Patient volume by day and hour
-- Patients meeting the 30-minute waiting-time target
+* **Number of Patients**
+* **Average Wait Time**
+* **Patient Satisfaction Score**
+* **Number of Patients Referred**
 
-This view is designed to provide a quick overview of the hospital's ER performance.
+### Interactive controls
 
----
+The page includes slicers for:
 
-### 3. Patient Details
+* Year
+* Month
+* **Staff Increase % — What-If Parameter**
 
-Provides a detailed patient-level view of the dataset.
+### Visual analysis
 
-Users can filter and inspect individual patient records based on available attributes and analyze patient characteristics alongside their ER visit information.
+The page contains several visualizations for:
 
----
+* Patient volume trends
+* Waiting-time trends
+* Satisfaction trends
+* Referral patterns
+* Admission status
+* Patient demographics
+* Department referrals
+* Patients seen within 30 minutes
+* Gender distribution
+* Patient volume by day
+* Patient volume by hour
 
-### 4. Key Takeaways
-
-A dedicated insights page summarizes the major findings from the analysis and translates the dashboard results into operational recommendations.
-
----
-
-# 📈 Key Performance Indicators
-
-The dashboard tracks several important ER KPIs:
-
-### Patient Volume
-
-**9,216 unique patients** were recorded during the analyzed 19-month period.
-
-### Average Waiting Time
-
-The overall average patient waiting time was approximately:
-
-**35.3 minutes**
-
-### Patient Satisfaction
-
-The average patient satisfaction score was:
-
-**4.99 / 10**
-
-### Admissions
-
-The dataset recorded:
-
-- **4,612 patients admitted**
-- **4,604 patients treated and released**
-
-This represents an almost even split between admissions and patients released after treatment.
-
-### Referral Volume
-
-A substantial portion of patients did not require departmental referral, while General Practice and Orthopedics accounted for the largest referral volumes among referred patients.
+This allows users to move from a monthly overview into specific operational patterns.
 
 ---
 
-# 🔍 Key Insights
+# 📊 2. Consolidated View
 
-## 1. Patient Wait Time & Satisfaction
+The **Consolidated View** provides an overall summary of ER activity.
 
-The average ER waiting time was approximately **35.3 minutes**.
+Instead of focusing primarily on month-to-month analysis, this page provides a broader view of the hospital's emergency department performance.
 
-The average patient satisfaction score was **4.99/10**, indicating an opportunity to investigate the relationship between waiting time and patient experience.
+### Key KPIs
 
-The dashboard also tracks the proportion of patients seen within the **30-minute target**.
+* Total Number of Patients
+* Average Wait Time
+* Patient Satisfaction Score
+* Number of Patients Referred
 
-Approximately **34% of visits were outside the 30-minute target**, highlighting specific periods where patient flow may require further investigation.
+### Analysis included
 
----
+* Admission status
+* Patient referrals
+* Patient wait-time performance
+* Department referral distribution
+* Gender distribution
+* Patient volume by day
+* Patient volume by hour
+* Patients seen within 30 minutes
 
-## 2. Departmental Referrals
-
-A large number of patients did not require a departmental referral:
-
-**5,400 patients**
-
-Among referred patients, the largest referral categories were:
-
-| Referral Department | Patients |
-|---|---:|
-| General Practice | 1,840 |
-| Orthopedics | 995 |
-| Physiotherapy | 276 |
-| Cardiology | 248 |
-
-General Practice and Orthopedics therefore represent major referral pathways within the analyzed ER data.
+A date slicer allows the user to dynamically filter the dashboard.
 
 ---
 
-## 3. Peak Patient Periods
+# 👤 3. Patient Details
 
-The analysis identified several high-volume days.
+The **Patient Details** page provides a more granular view of individual patients.
 
-### Busiest Days
+Users can filter the data using the available date controls and inspect patient-level information.
 
-| Day | Patients |
-|---|---:|
-| Saturday | 1,377 |
-| Monday | 1,322 |
-| Tuesday | 1,318 |
+### Patient-level attributes include
 
-The dashboard also identifies **11 AM, 1 PM, 7 PM, and 11 PM** as notable high-volume hours.
+* Patient ID
+* Patient Name
+* Age
+* Age Group
+* Gender
+* Race
+* Admission Date
+* Wait Time
+* Admission Status
+* Department Referral
+* Satisfaction Score
+* Wait-Time Status
 
-These patterns can be used to investigate whether staffing levels are aligned with patient demand.
-
----
-
-## 4. Patient Demographics
-
-The dashboard analyzes patient distribution across age groups.
-
-The largest age group was:
-
-**30–39 years → 1,200 patients**
-
-followed by:
-
-**20–29 years → 1,188 patients**
-
-The analysis also includes other age groups to provide a broader view of the ER patient population.
+This page is useful when moving from **high-level KPI analysis to individual patient records**.
 
 ---
 
-## 5. Race Distribution
+# 💡 4. Key Takeaways
 
-The dashboard provides a breakdown of patient records by race.
+The Key Takeaways page summarizes the major findings from the analysis.
 
-The largest recorded groups were:
+## Dataset Overview
 
-| Race | Patients |
-|---|---:|
-| White | 2,571 |
-| African American | 1,951 |
-| Multiracial | 1,557 |
-| Asian | 1,060 |
-
-Additionally, **1,030 patients declined to identify their race**.
-
-These demographic breakdowns are included for descriptive analysis of the dataset.
+* **9,216 unique patients**
+* Analysis period: **April 2023 – October 2024**
+* Total period: **19 months**
 
 ---
 
-## 6. Admission Patterns
+## ⏱️ Patient Wait Time & Satisfaction
 
-The dashboard shows an almost even split between patients who were admitted and those who were treated and released.
+The dashboard reports an average patient wait time of approximately:
 
-- **4,612 admitted**
-- **4,604 treated and released**
+### **35.3 minutes**
 
-This provides an overview of the proportion of ER visits resulting in hospital admission versus release after treatment.
+The average patient satisfaction score is approximately:
 
----
+### **4.99 / 10**
 
-# ⚙️ DAX & Data Modeling
-
-## Star Schema
-
-The project uses a structured data model based on a **star-schema approach**, allowing the dashboard to efficiently analyze patient records across different dimensions.
-
-The model supports:
-
-- Date-based analysis
-- Patient-level analysis
-- KPI calculations
-- Filtering and slicing
-- Monthly trend analysis
-- Staffing simulations
+The dashboard uses these KPIs to highlight the relationship between ER waiting time and the overall patient experience.
 
 ---
 
-# 🧮 DAX Measures
+## 🏥 Departmental Referrals
 
-Several DAX measures were developed to calculate operational KPIs dynamically.
+A substantial portion of patients did not require departmental referral.
 
-Examples include calculations for:
+### Referral distribution highlighted in the dashboard
 
-- Total patients
-- Average wait time
-- Patient satisfaction
-- Referral counts
-- Admission counts
-- Delay-related costs
-- Previous-month KPIs
-- Staffing impact
+* **No referral:** 5,400 patients
+* **General Practice:** 1,840 patients
+* **Orthopedics:** 995 patients
+* **Physiotherapy:** 276 patients
+* **Cardiology:** 248 patients
+
+General Practice and Orthopedics account for a substantial share of the referred patients.
 
 ---
 
-## 📅 Time Intelligence
+# 📈 Peak ER Periods
 
-DAX time-intelligence functions were used to analyze changes in operational KPIs over time.
+The dashboard identifies significant variation in patient volume by day and hour.
 
-Key functions include:
+### Busiest days
 
-```DAX
-CALCULATE()
-DATEADD()
+* **Saturday:** 1,377 patients
+* **Monday:** 1,322 patients
+* **Tuesday:** 1,318 patients
+
+### Busiest hours
+
+The dashboard highlights:
+
+* 11 AM
+* 1 PM
+* 7 PM
+* 11 PM
+
+These patterns can be used to investigate whether staffing levels are aligned with periods of higher patient demand.
+
+---
+
+# 👥 Patient Demographics
+
+## Age Distribution
+
+The dashboard identifies the following major age groups:
+
+* **30–39 years:** approximately 1,200 patients
+* **20–29 years:** approximately 1,188 patients
+* 40–50 years also represents a significant patient group
+
+---
+
+## Gender Distribution
+
+The dashboard provides a breakdown of patient volume by gender, allowing demographic differences in ER utilization to be explored.
+
+---
+
+## Race Distribution
+
+The dashboard reports:
+
+| Race                 | Patients |
+| -------------------- | -------: |
+| White                |    2,571 |
+| African American     |    1,951 |
+| Multiracial          |    1,557 |
+| Asian                |    1,060 |
+| Declined to identify |    1,030 |
+
+These figures are presented descriptively to understand the composition of the dataset.
+
+---
+
+# 🏥 Admission Patterns
+
+The dashboard compares patients who were admitted with those who were treated and released.
+
+### Reported figures
+
+* **Admitted:** 4,612 patients
+* **Treated & Released:** 4,604 patients
+
+This provides a near-even split between the two outcomes in the analyzed dataset.
+
+---
+
+# ⏰ 30-Minute Wait-Time Analysis
+
+One of the dashboard's operational KPIs evaluates whether patients were seen within a **30-minute target**.
+
+The dashboard indicates that approximately **34% of visits did not meet the 30-minute target**.
+
+This metric provides a simple operational indicator for identifying potential waiting-time bottlenecks.
+
+---
+
+# 🎛️ What-If Analysis
+
+A **What-If parameter** was implemented to analyze the potential effect of changing staffing levels.
+
+### Parameter
+
+**Staff Increase %**
+
+Users can interact with the staff-increase slicer and examine how changing the assumed staffing level affects the relevant dashboard metrics.
+
+This introduces a basic scenario-analysis component to the dashboard.
+
+### Why use a What-If parameter?
+
+Instead of looking only at historical performance, users can ask:
+
+> "What happens to the operational metrics if staffing is increased?"
+
+This makes the dashboard more useful for **planning and scenario analysis**, rather than only historical reporting.
+
+---
+
+# 📐 Data Model
+
+The report uses a structured Power BI data model involving:
+
+### Main data table
+
+**Hospital ER_Data**
+
+This contains the primary patient and operational information.
+
+### Supporting date table
+
+**Date Table**
+
+The report uses a dedicated date table for time-based analysis and filtering.
+
+The model supports analysis across:
+
+* Year
+* Month
+* Date
+* Day
+* Patient admission date
+* Time-based trends
+
+A separate table is also used for the **Staff Increase % What-If parameter**.
+
+---
+
+# 🧮 DAX & Calculated Metrics
+
+DAX was used to create and/or expose several analytical metrics used throughout the dashboard.
+
+Important measures/metrics include:
+
+* `No of Patients`
+* `No of Patients1`
+* `Avg Wait Time`
+* `Avg Wait Time Numeric`
+* `Previous Month Wait Time`
+* `Adjustedd Wait Time`
+* `Adjusted Cost of Delays`
+* `1 No of Patient Referred`
+* `Satisfaction Score`
+* `Waittime Status`
+* `Waittime Interval`
+* `1 Admission Status`
+* `Age Group`
+
+These calculations allow raw patient-level records to be converted into meaningful operational KPIs.
+
+---
+
+# 📊 Key KPIs
+
+The main dashboard KPIs include:
+
+| KPI                          | Purpose                                              |
+| ---------------------------- | ---------------------------------------------------- |
+| 👥 Number of Patients        | Measures overall ER patient volume                   |
+| ⏱️ Average Wait Time         | Measures patient waiting performance                 |
+| ⭐ Patient Satisfaction Score | Tracks patient experience                            |
+| 🔄 Patients Referred         | Measures departmental referral volume                |
+| 🏥 Admission Status          | Compares admitted vs released patients               |
+| ⏰ 30-Minute Performance      | Measures performance against the waiting-time target |
+| 💰 Adjusted Cost of Delays   | Provides an operational cost perspective             |
+| 📈 Previous Month Wait Time  | Enables time-based comparison                        |
+| 👨‍⚕️ Staff Increase %       | Enables staffing scenario analysis                   |
+
+---
+
+# 📊 Visualizations Used
+
+The dashboard combines multiple Power BI visual types, including:
+
+* KPI Cards
+* Area Charts
+* Column Charts
+* Clustered Column Charts
+* Clustered Bar Charts
+* Donut Charts
+* Tables / Matrix Visuals
+* Slicers
+* Page Navigation
+* Images
+* What-If Parameter Controls
+
+This combination allows both **summary-level monitoring** and **detailed exploration**.
+
+---
+
+# 🔍 Interactive Features
+
+The dashboard was designed to be interactive rather than static.
+
+### Users can:
+
+* Filter by date
+* Filter by year
+* Filter by month
+* Explore individual patients
+* Analyze admission patterns
+* Examine departmental referrals
+* Compare patient demographics
+* Investigate peak days and hours
+* Analyze wait-time performance
+* Adjust staffing assumptions using the What-If parameter
+* Navigate between dashboard pages
+
+---
+
+# 💼 Business Insights
+
+The analysis provides several operational insights.
+
+### 1. Waiting time is an important operational KPI
+
+An average waiting time of approximately **35.3 minutes** provides a baseline for evaluating ER patient flow.
+
+---
+
+### 2. Patient satisfaction provides another performance dimension
+
+The approximately **4.99/10 average satisfaction score** can be monitored alongside waiting-time metrics to understand the patient experience.
+
+---
+
+### 3. Patient demand varies significantly by time
+
+Saturday, Monday, and Tuesday show relatively high patient volumes, while several specific hours also experience higher demand.
+
+This can help hospital administrators investigate whether staffing schedules align with patient arrival patterns.
+
+---
+
+### 4. Referrals are concentrated in specific departments
+
+General Practice and Orthopedics represent major referral destinations.
+
+This may help identify departments that interact frequently with ER operations.
+
+---
+
+### 5. Admission and release outcomes are relatively balanced
+
+The dataset contains approximately equal numbers of admitted and treated-and-released patients.
+
+This provides useful context when analyzing ER workload and downstream hospital capacity.
+
+---
+
+### 6. A meaningful share of visits exceeds the 30-minute target
+
+The dashboard indicates that around **34% of visits did not meet the 30-minute target**, making waiting-time analysis an important operational area.
+
+---
+
+# 💡 Recommendations Derived from the Analysis
+
+The dashboard highlights several areas that could be investigated further:
+
+### 1. Align staffing with peak periods
+
+Patient volumes vary across days and hours. Staffing schedules can therefore be analyzed against these demand patterns.
+
+---
+
+### 2. Investigate delayed visits
+
+Cases exceeding the 30-minute target can be further segmented by:
+
+* Day
+* Hour
+* Department
+* Admission status
+* Patient characteristics
+
+This can help identify where delays are concentrated.
+
+---
+
+### 3. Analyze high-volume referral pathways
+
+Since General Practice and Orthopedics account for substantial referral activity, these pathways can be examined for potential process bottlenecks.
+
+---
+
+### 4. Use What-If analysis for staffing scenarios
+
+The Staff Increase % parameter provides a framework for testing different staffing assumptions before making operational decisions.
+
+---
+
+# 🛠️ Tools & Technologies
+
+### Power BI
+
+* Power BI Desktop
+* Power Query
+* DAX
+* Data Modeling
+* Interactive Visualizations
+* What-If Parameters
+* Slicers
+* KPI Cards
+* Drill-down / filtering
+* Dashboard navigation
+
+### Data Analysis Concepts
+
+* Exploratory Data Analysis
+* Time-Series Analysis
+* KPI Development
+* Patient Segmentation
+* Operational Performance Analysis
+* Scenario Analysis
+* Demographic Analysis
+
+---
+
+
+
+# 📸 Dashboard Pages
+
+## Monthly View
+
+Add a screenshot of your Monthly View here:
+
+```markdown
+Screenshot 2026-09-22 181227.png
+```
+
+---
+
+## Consolidated View
+
+```markdown
+Screenshot 2026-09-23 001720.png
+```
+
+---
+
+## Patient Details
+
+```markdown
+Screenshot 2026-09-23 001730.png
+```
+
+---
+
+## Key Takeaways
+
+```markdown
+Screenshot 2026-09-23 001737.png
+```
+
+---
+
+# 📌 Project Highlights
+
+* Analyzed **9,216 unique ER patients**
+* Covered **19 months of hospital ER activity**
+* Built **4 interactive Power BI dashboard pages**
+* Created operational KPIs using **DAX**
+* Analyzed **wait times, admissions, referrals, satisfaction, and patient demographics**
+* Identified peak patient-demand periods
+* Evaluated performance against a **30-minute waiting-time target**
+* Implemented a **Staff Increase % What-If parameter**
+* Added patient-level analysis for detailed exploration
+* Built an interactive dashboard suitable for operational decision support
+
+---
+
+# 🔮 Future Improvements
+
+The dashboard could be extended by adding:
+
+* Real-time ER monitoring
+* Predictive patient-volume forecasting
+* Wait-time prediction using Machine Learning
+* Department-level performance benchmarking
+* Staff utilization metrics
+* Bed occupancy analysis
+* Doctor/nurse workload analysis
+* Automated alerts for excessive waiting times
+* Predictive admission modeling
+* Cost-benefit analysis of staffing changes
+* More detailed What-If scenarios
+* Integration with live hospital databases
+
+---
